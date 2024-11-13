@@ -1,11 +1,9 @@
 import React, { useEffect } from "react"; // Importing React and the useEffect hook for side effects
 import AOS from "aos"; // Importing the AOS (Animate On Scroll) library for animations
 import "aos/dist/aos.css"; // Importing the AOS CSS file for animation styling
-import "./Sec1.css"; // Importing custom CSS specific to this component
 import img from "src/assets/Frame.svg";
-import { ButtonSize, ButtonType, LinkButton } from "src/components";
+import { ButtonType, LinkButton } from "src/components";
 import { Audience } from "src/views";
-import { fundIssuePath } from "src/App";
 
 const Sec1 = () => {
   // Defining the Sec1 functional component
