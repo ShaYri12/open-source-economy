@@ -50,58 +50,60 @@ const Sec4 = () => {
   }, []); // Empty dependency array to ensure the effect runs only once after initial render
 
   return (
-    <div className="container mt-4 mt-md-0 pt-3 sec_4">
-      {" "}
-      <h1 className="texth1">Dig into the details</h1>{" "}
-      <div className="bgimage">
+    <div className="md:px-[35px] px-[25px] mt-4 mt-md-0 pt-3 sec_4">
+      <div className="max-w-[1280px] mx-auto">
         {" "}
-        <div className="sec_4box d-flex align-items-center justify-content-center gap-5 flex-wrap">
+        <h1 className="texth1">Dig into the details</h1>{" "}
+        <div className="bgimage">
           {" "}
-          {videoData.map(
-            (
-              video,
-              index, // Mapping over video data to create video boxes
-            ) => (
-              <div
-                key={video.id} // Unique key for each video box
-                className="d-flex align-items-center justify-content-center"
-                data-aos="fade-right" // Applying fade-right animation on scroll
-                data-aos-delay={index * 200} // Staggered delay for each video box
-              >
-                <div className="position-relative videobox px-3 py-3">
-                  {" "}
-                  {playingVideoId !== video.id && ( // Conditionally rendering the video thumbnail if the video is not playing
-                    <img className="video-img" src={videoimg} alt={video.alt} onClick={() => handlePlayClick(video.id)} />
-                  )}
-                  <div className={`overlay ${playingVideoId === video.id ? "hide" : ""}`}></div>
-                  <video
-                    id={`myVideo-${video.id}`} // Unique ID for each video element
-                    className={`videohide ${
-                      playingVideoId === video.id ? "show" : "" // Conditional class for hiding/showing video
-                    }`}
-                    width="300px"
-                    height="auto"
-                    controls
-                    playsInline
-                  >
-                    <source src={video.src} /> {/* Video source URL */}
-                  </video>
-                  {playingVideoId !== video.id && ( // Conditionally rendering the play button if the video is not playing
-                    <div
-                      className="videoplaybtn"
-                      onClick={() => handlePlayClick(video.id)} // Click event to handle video play
+          <div className="sec_4box d-flex align-items-center justify-content-center gap-5 flex-wrap">
+            {" "}
+            {videoData.map(
+              (
+                video,
+                index // Mapping over video data to create video boxes
+              ) => (
+                <div
+                  key={video.id} // Unique key for each video box
+                  className="d-flex align-items-center justify-content-center"
+                  data-aos="fade-right" // Applying fade-right animation on scroll
+                  data-aos-delay={index * 200} // Staggered delay for each video box
+                >
+                  <div className="position-relative videobox px-3 py-3">
+                    {" "}
+                    {playingVideoId !== video.id && ( // Conditionally rendering the video thumbnail if the video is not playing
+                      <img className="video-img" src={videoimg} alt={video.alt} onClick={() => handlePlayClick(video.id)} />
+                    )}
+                    <div className={`overlay ${playingVideoId === video.id ? "hide" : ""}`}></div>
+                    <video
+                      id={`myVideo-${video.id}`} // Unique ID for each video element
+                      className={`videohide ${
+                        playingVideoId === video.id ? "show" : "" // Conditional class for hiding/showing video
+                      }`}
+                      width="300px"
+                      height="auto"
+                      controls
+                      playsInline
                     >
-                      <button className="playbtn">
-                        <img src={vector} className="playbtn" alt="Play Button" /> <img src={hover} className="sec3play" alt="Play Button" />{" "}
-                        {/* Alt text for the play button image */}
-                      </button>
-                    </div>
-                  )}
-                  <h1 className="mt-3 video-h1-text">New video youtube</h1> <h2 className="my-3 video-h2-text">READ MORE</h2>{" "}
+                      <source src={video.src} /> {/* Video source URL */}
+                    </video>
+                    {playingVideoId !== video.id && ( // Conditionally rendering the play button if the video is not playing
+                      <div
+                        className="videoplaybtn"
+                        onClick={() => handlePlayClick(video.id)} // Click event to handle video play
+                      >
+                        <button className="playbtn">
+                          <img src={vector} className="playbtn" alt="Play Button" /> <img src={hover} className="sec3play" alt="Play Button" />{" "}
+                          {/* Alt text for the play button image */}
+                        </button>
+                      </div>
+                    )}
+                    <h1 className="mt-3 video-h1-text">New video youtube</h1> <h2 className="my-3 video-h2-text">READ MORE</h2>{" "}
+                  </div>
                 </div>
-              </div>
-            ),
-          )}
+              )
+            )}
+          </div>
         </div>
       </div>
     </div>

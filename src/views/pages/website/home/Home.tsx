@@ -19,11 +19,12 @@ export function Home(props: HomeProps) {
         </div>
         <Sec2 />
         <div>
-          <div className="sec3bg1">
+          <div className="bg-[url('/src/assets/playvideobg.png')] bg-[90%] bg-cover bg-no-repeat bg-[position-x:10px] md:py-[120px] py-[80px]">
             <div className="sec3bg2">
               <Sec3 />
             </div>
           </div>
+
           <Sec4 />
         </div>
       </div>

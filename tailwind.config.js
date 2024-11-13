@@ -30,6 +30,12 @@ export default {
         slideInDown: "slideInDown 0.5s ease-out",
       },
 
+      backgroundSize: {
+        auto: "auto",
+        cover: "cover",
+        contain: "contain",
+        "80%": "80%",
+      },
       screens: {
         sm: "640px", // Small devices (phones)
         md: "768px", // Medium devices (tablets)
