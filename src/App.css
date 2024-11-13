@@ -1,0 +1,136 @@
+/* main css */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0e1f35;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  overflow-x: hidden !important;
+}
+
+.michroma {
+  font-family: "Michroma", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+html {
+  overflow-x: hidden !important;
+}
+
+.bg {
+  background: #0e1f35;
+}
+
+.message::placeholder {
+  color: rgba(252, 254, 253, 27%) !important;
+  /* Set the placeholder text color to white */
+}
+
+.email::placeholder {
+  color: #fff !important;
+  /* Set the placeholder text color to white */
+}
+
+/* Hide default checkbox appearance */
+.customCheckbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 34px;
+  height: 24px;
+  border: 2px solid #202F45;
+  border-radius: 6px;
+  background-color: #202F45;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  margin: 0;
+  /* Ensures checkbox aligns correctly */
+}
+
+/* Styles for checked state */
+.customCheckbox:checked {
+  background-color: #202F45;
+  border-color: #202F45;
+}
+
+/* Font Awesome icon for checked state */
+.customCheckbox:checked::after {
+  content: '\f00c';
+  /* Font Awesome checkmark */
+  font-family: 'Font Awesome 6 Free';
+  /* Font Awesome 6 Free */
+  font-weight: 900;
+  /* Font Awesome 6 Free */
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 0.75rem;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width : 1000px) {
+  .customCheckbox {
+    width: 45px !important;
+  }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Additional reset to prevent a potential workaround for hiding */
+input[type="number"] {
+  -moz-appearance: textfield;
+  /* For Firefox */
+}
+
+
+.gradient-text {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  /* Text gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  /* Required for the pseudo-element */
+}
+
+
+.form-select:focus {
+  border-color: none !important;
+  outline: 0;
+  box-shadow: none;
+}
+
+.form-select {
+  background-image: url(./assets/arrowdown.png);
+  background-size: 3%;
+  color: #fff;
+  background-position: right 20px center;
+}
+
+.offcanvas-header .btn-close {
+  background-image: url(./assets/close.png) !important;
+  background-size: contain;
+  /* Ensure the image fits within the button */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  /* Adjust the width */
+  height: 20px;
+  /* Adjust the height */
+  opacity: 1;
+  /* Ensure the close button is fully visible */
+  border: none;
+  cursor: pointer;
+  /* Remove any border if there is one */
+}
