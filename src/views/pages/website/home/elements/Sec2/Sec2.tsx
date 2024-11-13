@@ -1,38 +1,34 @@
-import React, { useEffect } from "react"; // Importing React and the useEffect hook
-import AOS from "aos"; // Importing the AOS (Animate On Scroll) library for animations
-import "aos/dist/aos.css"; // Importing AOS CSS for animation styling
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import sec2icon1 from "src/assets/sec2img.png";
 import sec2icon2 from "src/assets/icon/sec2img3.png";
 import sec2icon3 from "src/assets/sec2img2.png";
 import startimg from "src/assets/star.png";
-import "./Sec2.css";
 import { ButtonType, LinkButton } from "src/components";
 import { Audience } from "../../../../../Audience";
 
 const Sec2 = () => {
-  // Defining the Sec2 functional component
   useEffect(() => {
-    // Using the useEffect hook to initialize AOS after the component mounts
     AOS.init({
-      // Initializing AOS with specific options
-      duration: 1000, // Setting the animation duration to 1000ms (1 second)
-      once: true, // Enabling animations to occur only once while scrolling down
-      mirror: false, // Disabling animations when scrolling past elements in reverse
+      duration: 1000,
+      once: true,
+      mirror: false,
     });
-  }, []); // Empty dependency array to ensure the effect runs only once after initial render
+  }, []);
 
   return (
-    <div className="container mt-5" style={{ zIndex: 99 }}>
-      <div className="d-flex flex-wrap justify-content-center gap-4">
+    <div className="mt-5 relative z-[99] md:px-[35px] px-[25px]">
+      <div className="flex flex-wrap justify-center gap-4 max-w-[1280px] mx-auto">
+        {/* First Box */}
         <div
-          className="box px-md-5 py-md-5 px-md-5 px-4 py-4 d-flex flex-column gap-5 flex-sm-row align-items-center box1"
-          data-aos="fade-left" // Applying fade-left animation on scroll
-          data-aos-delay="0" // No delay for the first box animation
+          className="bg-[#14233A] group rounded-[50px] 2xl:w-[610px] w-[565px] px-5 py-5 lg:px-[48px] lg:py-[48px] flex flex-col md:flex-row items-center justify-between gap-4 transition-all duration-1000 ease-in-out hover:shadow-[0_-2px_45px_rgba(255,126,75,0.6)]"
+          data-aos="fade-left"
+          data-aos-delay="0"
         >
           <div>
-            <h1 className="boxh1-text">Get Paid</h1>
-            <h2 className="boxh2-text mt-3">
-              {" "}
+            <h1 className="text-white text-[36px] font-normal leading-[46.8px]">Get Paid</h1>
+            <h2 className="text-white text-left text-[16px] font-normal leading-[25.5px] mt-3">
               Stop begging for donations! <br /> Fund your future. Have a Say
             </h2>
             <div className="mt-3">
@@ -46,26 +42,25 @@ const Sec2 = () => {
               />
             </div>
           </div>
-          <div className="position-relative">
-            <img className="boximg h-100" src={sec2icon1} alt="Get Paid Icon" />{" "}
-            <div className="starimg">
-              <img src={startimg} alt="" />
+          <div className="relative">
+            <img className="w-[180px] h-[180px] object-cover" src={sec2icon1} alt="Get Paid Icon" />
+            <div className="absolute top-[60px] left-[18px] transition-all duration-500 ease-in group-hover:rotate-[30deg] group-hover:scale-110">
+              <img className="w-[45px] h-[45px]" src={startimg} alt="" />
             </div>
           </div>
         </div>
+
         {/* Second Box */}
         <div
-          className="box px-md-5 py-md-5 px-md-5 px-4 py-4 d-flex flex-column gap-4 flex-sm-row align-items-center box2"
-          data-aos="fade-left" // Applying fade-left animation on scroll
-          data-aos-delay="200" // 200ms delay for the second box animation
+          className="bg-[#14233A] group rounded-[50px] 2xl:w-[630px] w-[565px] px-5 py-5 lg:px-[48px] lg:py-[48px] flex flex-col md:flex-row items-center justify-between gap-5 transition-all duration-1000 ease-in-out hover:shadow-[0_-2px_45px_rgba(255,81,140,0.6)]"
+          data-aos="fade-left"
+          data-aos-delay="200"
         >
           <div>
-            <h1 className="boxh1-text">Get Support</h1>
-            <h2 className="mt-3 boxh2-text">
-              {" "}
+            <h1 className="text-white text-[36px] font-normal leading-[46.8px]">Get Support</h1>
+            <h2 className="text-white text-left text-[16px] font-normal leading-[25.5px] mt-3">
               Forget the far west! Secure your <br /> platform, secure your business.
             </h2>
-
             <div className="mt-3">
               <LinkButton
                 linkProps={{ to: "/user" }}
@@ -76,33 +71,43 @@ const Sec2 = () => {
                 }}
               />
             </div>
-            {/* Button with padding and margin-top */}
           </div>
-          <div className="position-relative">
-            <img src={sec2icon2} className="boximg" alt="Get Support Icon" />{" "}
-            <div className="starimg3">
-              <img src={startimg} alt="" />
+          <div className="relative">
+            <img src={sec2icon2} className="w-[180px] h-[180px] object-cover" alt="Get Support Icon" />
+            <div className="absolute top-[40px] left-[85px] transition-all duration-500 ease-in group-hover:rotate-[60deg] group-hover:scale-110">
+              <img className="w-[50px] h-[50px]" src={startimg} alt="" />
             </div>
           </div>
         </div>
+
         {/* Third Box */}
         <div
-          className="box3 box px-md-5 py-md-5 px-md-5 px-4 py-4 d-flex flex-column gap-0 flex-sm-row align-items-center"
-          data-aos="fade-left" // Applying fade-left animation on scroll
-          data-aos-delay="400" // 400ms delay for the third box animation
+          className="bg-[#14233A] group rounded-[50px] 2xl:w-[630px] w-[565px] px-5 py-5 lg:px-[48px] lg:py-[48px] flex flex-col md:flex-row gap-5 items-center justify-between transition-all duration-1000 ease-in-out hover:shadow-[0_-2px_45px_rgba(94,48,156,0.6)] relative"
+          data-aos="fade-left"
+          data-aos-delay="400"
         >
-          <div className="text-content">
-            <h1 className="boxh1-text">Get a Stake</h1>
-            <h2 className="mt-3 boxh2-text">
+          <div className="text-content transition-opacity duration-100 ease-in-out hover:opacity-0">
+            <h1 className="text-white text-[36px] font-normal leading-[46.8px]">Get a Stake</h1>
+            <h2 className="text-white text-left text-[16px] font-normal leading-[25.5px] mt-3">
               Support, invest, or donate in <br /> projects to get a part of its <br />
               business, governance, and ecosystem.
             </h2>
           </div>
-          <div className="image-content position-relative">
-            <img src={sec2icon3} className="boximg " alt="Get a Stake Icon" />{" "}
-            <div className="starimg2">
-              <img src={startimg} alt="" />
+
+          <div className="relative image-content">
+            {/* Update: Set initial opacity to 100 */}
+            <img
+              src={sec2icon3}
+              className="w-[180px] h-[180px] object-cover opacity-100 transition-opacity duration-300 ease-in-out hover:opacity-100"
+              alt="Get a Stake Icon"
+            />
+            <div className="absolute bottom-[-5px] left-[32%] transition-all duration-500 ease-in group-hover:rotate-[60deg] group-hover:scale-110">
+              <img className="w-[40px] h-[40px]" src={startimg} alt="" />
             </div>
+          </div>
+
+          <div className="absolute top-[50%] left-[35%] transform -translate-x-1/2 -translate-y-1/2 text-white text-[45px] opacity-0 group-hover:opacity-100 transition-opacity duration-100 ease-in-out">
+            Coming Soon
           </div>
         </div>
       </div>
@@ -110,4 +115,4 @@ const Sec2 = () => {
   );
 };
 
-export default Sec2; // Exporting the Sec2 component as the default export
+export default Sec2;
