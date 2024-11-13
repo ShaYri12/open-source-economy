@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react"; // Importing React, useEffect, and useState hooks
 import AOS from "aos"; // Importing the AOS (Animate On Scroll) library for animations
 import "aos/dist/aos.css"; // Importing AOS CSS for animation styling
-import "./sec_4.css"; // Importing custom CSS specific to this component
 import vector from "src/assets/playbtn.svg";
-import hover from "src/assets/playbtnhover.png";
 import videoimg from "src/assets/videoframe_16852.png"; // Importing the video thumbnail image asset
 
 // Array of video data, including video source URLs and alt text for thumbnails
@@ -50,59 +48,74 @@ const Sec4 = () => {
   }, []); // Empty dependency array to ensure the effect runs only once after initial render
 
   return (
-    <div className="md:px-[35px] px-[25px] mt-4 mt-md-0 pt-3 sec_4">
-      <div className="max-w-[1280px] mx-auto">
-        {" "}
-        <h1 className="texth1">Dig into the details</h1>{" "}
-        <div className="bgimage">
-          {" "}
-          <div className="sec_4box d-flex align-items-center justify-content-center gap-5 flex-wrap">
-            {" "}
-            {videoData.map(
-              (
-                video,
-                index // Mapping over video data to create video boxes
-              ) => (
+    <div className="md:px-[35px] px-[25px] md:py-[120px] py-[80px]">
+      <div className="bg-[url('/src/assets/Group258.svg')] bg-cover bg-no-repeat xl:bg-custom-y bg-center">
+        <div className="max-w-[1280px] mx-auto">
+          <h1 className="sm:text-[42px] text-[32px] text-center text-white">Dig into the details</h1>
+          <div className="px-0 md:py-[110px] md:px-0 py-[40px]">
+            <div className="flex items-center justify-center gap-5 w-full flex-wrap">
+              {videoData.map((video, index) => (
                 <div
-                  key={video.id} // Unique key for each video box
-                  className="d-flex align-items-center justify-content-center"
-                  data-aos="fade-right" // Applying fade-right animation on scroll
-                  data-aos-delay={index * 200} // Staggered delay for each video box
+                  key={video.id}
+                  className="flex items-center justify-center w-full sm:w-1/2 lg:w-[30.5%]" // Responsive width handling
+                  data-aos="fade-right"
+                  data-aos-delay={index * 200}
                 >
-                  <div className="position-relative videobox px-3 py-3">
-                    {" "}
-                    {playingVideoId !== video.id && ( // Conditionally rendering the video thumbnail if the video is not playing
-                      <img className="video-img" src={videoimg} alt={video.alt} onClick={() => handlePlayClick(video.id)} />
+                  <div className="relative bg-[#14233A] group cursor-pointer px-3 py-3 rounded-[30px]">
+                    {/* Image */}
+                    {playingVideoId !== video.id && (
+                      <img
+                        className="min-[360px] w-full rounded-[30px] group-hover:opacity-[0.7] transition-opacity duration-300 ease-in-out"
+                        src={videoimg}
+                        alt={video.alt}
+                        onClick={() => handlePlayClick(video.id)}
+                      />
                     )}
-                    <div className={`overlay ${playingVideoId === video.id ? "hide" : ""}`}></div>
+
+                    {/* Overlay */}
+                    <div className="absolute top-[15px] left-[15px] w-[92%] h-[60%] bg-black bg-opacity-50 rounded-[30px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-10"></div>
+
+                    {/* Video (hidden if not playing) */}
                     <video
-                      id={`myVideo-${video.id}`} // Unique ID for each video element
-                      className={`videohide ${
-                        playingVideoId === video.id ? "show" : "" // Conditional class for hiding/showing video
-                      }`}
-                      width="300px"
-                      height="auto"
+                      id={`myVideo-${video.id}`}
+                      className={`rounded-[30px] min-w-[360px] w-full ${playingVideoId === video.id ? "block" : "hidden"}`}
                       controls
                       playsInline
                     >
-                      <source src={video.src} /> {/* Video source URL */}
+                      <source src={video.src} />
                     </video>
-                    {playingVideoId !== video.id && ( // Conditionally rendering the play button if the video is not playing
+
+                    {/* Play button */}
+                    {playingVideoId !== video.id && (
                       <div
-                        className="videoplaybtn"
-                        onClick={() => handlePlayClick(video.id)} // Click event to handle video play
+                        className="absolute top-[36%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer z-[99]"
+                        onClick={() => handlePlayClick(video.id)}
                       >
-                        <button className="playbtn">
-                          <img src={vector} className="playbtn" alt="Play Button" /> <img src={hover} className="sec3play" alt="Play Button" />{" "}
-                          {/* Alt text for the play button image */}
+                        <button className="relative flex items-center justify-center w-[50px] h-[50px] border-0 transition-all duration-[600ms] ease-in-out">
+                          <img
+                            src={vector}
+                            className="absolute w-[50px] h-[50px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-[600ms] ease-in-out hover:brightness-[130%]"
+                            alt="Play Button"
+                          />
                         </button>
                       </div>
                     )}
-                    <h1 className="mt-3 video-h1-text">New video youtube</h1> <h2 className="my-3 video-h2-text">READ MORE</h2>{" "}
+
+                    {/* Heading */}
+                    <h1 className="mt-3 text-[21px] text-center text-white">New video youtube</h1>
+                    <h2
+                      className="my-3 text-[16px] text-white text-center cursor-pointer transition-all duration-[1s] ease-in-out bg-white hover:bg-[linear-gradient(90deg,_#ff7e4b_0%,_#ff518c_50%,_#66319b_100%)]"
+                      style={{
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                      READ MORE
+                    </h2>
                   </div>
                 </div>
-              )
-            )}
+              ))}
+            </div>
           </div>
         </div>
       </div>
